@@ -14,19 +14,10 @@ async def on_ready():
   print(f'Logged in as {bot.user.name} (ID: {bot.user.id})')
   return
 
-# @bot.event
-# async def on_message(ctx):
-#   if ctx.author.id != bot.user.id and ctx.channel.name == CHANNEL:
-#     # add your code here
-#     await ctx.channel.send(f'Says {ctx.author}')
-#   return
-
 @bot.event
 async def on_command_error(ctx, error):
   await ctx.send(f'Oops! {error}')
   return
-  # if isinstance(error, commands.errors.CheckFailure):
-  #   await ctx.send(error)
 
 @bot.command(name='test')
 async def test(ctx):
