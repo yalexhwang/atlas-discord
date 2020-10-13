@@ -27,7 +27,7 @@ async def on_command_error(ctx, error):
   return
   # if isinstance(error, commands.errors.CheckFailure):
   #   await ctx.send(error)
-
+  
 @bot.command(name='test')
 async def test(ctx):
   await ctx.send('test...')
