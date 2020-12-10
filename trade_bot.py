@@ -28,7 +28,9 @@ async def say_what(ctx, command):
 
 @bot.command(name='list')
 async def test(ctx):
+  print(ctx.author.id)
   url = BASE_URL + '/trades/' + str(ctx.author.id)
+  print(url)
   req = requests.get(url)
   print(req.status_code)
   if req.status_code == 200:
@@ -42,7 +44,7 @@ async def test(ctx):
 @bot.command(name='open')
 async def test(ctx, ticker, position_type, expiry, strike_price, starting_price):
   url = BASE_URL + '/trade'
-  data = {'traderId': ctx.author.id, 'ticker': ticker, 'positionType': position_type, 'expiration': expiry, 'strikePrice': strike_price, 'contractPriceAtOpen': starting_price}
+  data = {'traderId': str(ctx.author.id), 'ticker': ticker, 'positionType': position_type, 'expiration': expiry, 'strikePrice': strike_price, 'contractPriceAtOpen': starting_price}
   print(data)
   req = requests.post(url, json = data)
   if req.status_code == 200:
